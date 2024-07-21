@@ -1,0 +1,156 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  background-image: url("../Image/Hero.jpeg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.hero p {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.feature-card {
+  flex-basis: 30%;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.feature-card i {
+  font-size: 2.5em;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.about, .testimonials {
+  margin-bottom: 40px;
+}
+
+.testimonial {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: white;
+}
+
+/* רספונסיביות למסכים בינוניים */
+@media (max-width: 1430px) {
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  .feature-card {
+    flex-basis: 30%;
+    width: 85%; 
+  }
+   .features {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
+@media (max-width: 800px) {
+  .hero h1 {
+    font-size: 2.2em;
+  }
+
+  .hero p {
+    font-size: 1.1em;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    flex-basis: 80%;
+    width: 85%;
+  }
+}
+
+
+/* רספונסיביות למסכים קטנים (פלאפונים) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.8em;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+
+  .feature-card {
+    flex-basis: 100%;
+    width: 85%;
+  }
+
+  .cta-button {
+    display: block;
+    width: 80%;
+    text-align: center;
+  }
+}

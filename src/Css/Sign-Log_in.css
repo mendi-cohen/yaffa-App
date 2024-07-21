@@ -1,0 +1,57 @@
+.card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  .card h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    text-align: center;
+  }
+  
+  .card form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card form label {
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .card form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+  }
+  
+  .card form input:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .card form button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card form button:hover {
+    background-color: #2980b9;
+  }
+  
+  .card a i {
+    margin-top: 10px;
+  }
+  
