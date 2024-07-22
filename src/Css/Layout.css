@@ -121,23 +121,27 @@ body {
 
   .side-nav {
     width: 100%;
-    height: 15%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
 
   .side-nav.expanded {
     width: 100%;
     text-align: center;
-    padding-bottom: 20px;
+    padding: 10px 0;
   }
 
   .side-nav ul {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .side-nav li {
-    flex-direction: column;
-    text-align: center;
+    flex: 0 0 auto;
+    margin: 5px 10px;
   }
 
   .blinking-icon {
@@ -145,7 +149,7 @@ body {
   }
 
   .blinking-icon-up {
-    display: block;
+    display: inline-block;
   }
 
   .login-button {
@@ -155,8 +159,6 @@ body {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    position: relative;
-    top: 0;
-    left: 0;
+    display: inline-block;
   }
 }
