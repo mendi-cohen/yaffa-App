@@ -116,14 +116,14 @@ body {
 /* רספונסיביות */
 @media (max-width: 1100px) {
   .layout-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .side-nav {
     width: 100%;
     height: auto;
     position: sticky;
-    top: 0;
+    bottom: 0;
     z-index: 1000;
   }
 

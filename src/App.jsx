@@ -2,7 +2,8 @@ import MyRouter from './Router';
 import './App.css'
 import './Css/Layout.css'
 import './Css/Sign-Log_in.css' 
-import './Css/Home.css' 
+import './Css/Home.css' ;
+import './Css/About.css';
 
 
 function App() {
