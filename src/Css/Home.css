@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&display=swap');
+
+
 .home-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -7,26 +10,36 @@
 
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
   background-color: #f8f9fa;
   border-radius: 10px;
   margin-bottom: 40px;
-  background-image: url("../Image/Hero.jpeg");
-  background-position: top;
+  background-image: url("../Image/HomeImage.jpeg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 300px;
+  margin-bottom: 20px;
+  font-family: "Kalnia Glaze", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  
   
 }
 
 .hero h1 {
-  font-size: 2.5em;
+  font-size: 3em;
   color: #333;
+
+
 }
 
 .hero p {
-  font-size: 1.1em;
-  color: #666;
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #585656;
+
 }
 
 .cta-button {
@@ -59,6 +72,7 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   border-radius: 5px;
   margin-bottom: 20px;
+  text-decoration: none;
 }
 
 .feature-card i {
@@ -81,9 +95,14 @@
 footer {
   text-align: center;
   padding: 20px 0;
-  background-color: #333;
-  color: white;
+  background-color: #040303;
 }
+footer p {
+  text-align: center;
+  padding: 20px 0;
+  color: #f1eaea;
+}
+
 
 /* רספונסיביות למסכים בינוניים */
 @media (max-width: 1430px) {
@@ -130,7 +149,7 @@ footer {
 
 
 /* רספונסיביות למסכים קטנים (פלאפונים) */
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .hero {
     padding: 40px 15px;
   }
@@ -153,4 +172,4 @@ footer {
     width: 80%;
     text-align: center;
   }
-}
+} */

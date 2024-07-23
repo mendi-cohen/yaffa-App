@@ -5,6 +5,8 @@ import Ads from './Components/Pages/Ads';
 import LogIn from './Components/Pages/Log_in';
 import SignIn from './Components/Pages/Sign_in';
 import About from './Components/Pages/About';
+import Art from './Components/Pages/Articles';
+import Meeting from './Components/Pages/Meeting';
 
 const MyRouter = () => {
   return (
@@ -16,6 +18,8 @@ const MyRouter = () => {
           <Route path="login" element={<LogIn />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="about" element={<About />} />
+          <Route path="art" element={<Art />} />
+          <Route path="meeting" element={<Meeting />} />
         </Route>
       </Routes>
     </Router>
