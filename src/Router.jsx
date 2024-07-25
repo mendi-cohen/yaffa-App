@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LayoutHome from './Layout';
-import Home from './Components/Pages/Home';
-import Ads from './Components/Pages/Ads';
-import LogIn from './Components/Pages/Log_in';
-import SignIn from './Components/Pages/Sign_in';
-import About from './Components/Pages/About';
-import Art from './Components/Pages/Articles';
-import Meeting from './Components/Pages/Meeting';
+import Home from './Pages/Home';
+import Ads from './Pages/Ads';
+import LogIn from './Pages/Log_in';
+import SignIn from './Pages/Sign_in';
+import About from './Pages/About';
+import Art from './Pages/Articles';
+import Meeting from './Pages/Meeting';
 
 const MyRouter = () => {
   return (
