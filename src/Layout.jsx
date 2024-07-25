@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from "react-router-dom";
 import '@fortawesome/fontawesome-free/css/all.css';
 import  Logo from '../src/Components/Logo';
+import  Image from '../src/Components/UserProfile';
 
 export default function LayoutHome() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -29,7 +30,8 @@ export default function LayoutHome() {
     <div className="layout-container">
        {isMobile? <Logo className={'logo'} sized= '-1500 0 4000 800'/> : ''}
       <main className="main-content">
-        <Outlet />
+      <div> <Image/> </div>
+       <div> <Outlet /></div>
       </main>
       <nav
         className={`side-nav ${isExpanded ? 'expanded' : ''} ${isMobile ? 'mobile' : ''}`}
