@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+
+
 
 export default function Log_in() {
   return (
@@ -12,14 +12,8 @@ export default function Log_in() {
         <label htmlFor="password">סיסמא</label>
         <input type="password" id="password" name="password" required />
         
-        <button type="submit">היכנס</button>
+        <button type="submit"> התחבר/י </button>
       </form>
-
-      <motion.div whileHover={{ scale: 1.5 }}>
-        <Link to="/signin">
-          <i className="fas fa-user"></i> <span> עדיין לא רשומ/ה? </span>
-        </Link>
-      </motion.div>
     </div>
   );
 }
