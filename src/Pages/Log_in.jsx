@@ -13,7 +13,7 @@ const Login = () => {
     setError(''); 
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_HOST_API}users/log-in`, {
+      const response = await fetch(`${process.env.REACT_APP_HOST_API}/users/log-in`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
