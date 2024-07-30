@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); 
 
     try {
       const response = await fetch(`${process.env.REACT_APP_HOST_API}/users/log-in`, {
@@ -24,14 +25,34 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log('התחברות בוצעה בהצלחה', data);
-      
+        toast.success( `!${data.user.name || ''} ברוך הבא `, {
+          position: "top-center",
+          autoClose: 500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          onClose: () => navigate('dashboard')
+        });
       } else {
-        setError(data.message || 'התרחשה שגיאה בהתחברות');
+        toast.error(data.message || 'התרחשה שגיאה בהתחברות', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
       }
     } catch (error) {
-      setError('שגיאת התחברות. אנא נסה שוב מאוחר יותר.');
-      console.error('שגיאה:', error);
+      toast.error('שגיאת התחברות. אנא נסה שוב מאוחר יותר.', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     }
   };
 
@@ -43,7 +64,6 @@ const Login = () => {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         <h2>התחברות</h2>
-        {error && <div className="error-message">{error}</div>}
         <div className="form-group">
           <label htmlFor="email">אימייל</label>
           <input
@@ -75,6 +95,7 @@ const Login = () => {
         </div>
         <button type="submit" className="submit-button">התחבר/י</button>
       </form>
+      <ToastContainer />
     </div>
   );
 };
