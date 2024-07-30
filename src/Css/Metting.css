@@ -161,3 +161,11 @@
   .meeting-details p {
     color: #495057;
   }
+  @media (max-width: 800px) {
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    
+  }
