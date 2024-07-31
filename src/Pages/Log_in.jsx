@@ -27,12 +27,12 @@ const Login = () => {
       if (response.ok) {
         toast.success( `!${data.user.name || ''} ברוך הבא `, {
           position: "top-center",
-          autoClose: 500,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
-          onClose: () => navigate('dashboard')
+          onClose: () => navigate('dashboard' , {state: { user: data.user} })
         });
       } else {
         toast.error(data.message || 'התרחשה שגיאה בהתחברות', {
