@@ -1,11 +1,12 @@
-import { useLocation } from 'react-router-dom';
+import {useAuth} from '../Components/AuthContext';
+
 export default function Dashboard () {
-const location = useLocation();
-const { user } = location.state || {};
+const user = useAuth();
+console.log(user);
     return(
         <>
         <div>
-            <h1>  !{user.name} שלום </h1>
+            <h1> {`!שלום ${user.user.name}`} </h1>
         </div>
         </>
     )
