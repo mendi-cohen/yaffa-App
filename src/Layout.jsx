@@ -3,12 +3,15 @@ import { Outlet, Link, useLocation } from "react-router-dom";
 import '@fortawesome/fontawesome-free/css/all.css';
 import  Logo from '../src/Components/Logo';
 import {useAuth} from '../src/Components/AuthContext';
+import Loader from "./Components/Loader";
 
 
 export default function LayoutHome() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1100);
   const location = useLocation();
+
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,8 +33,10 @@ export default function LayoutHome() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div>טוען... </div>;
+    return <Loader/>;
   }
+
+  
 
 
   return (
