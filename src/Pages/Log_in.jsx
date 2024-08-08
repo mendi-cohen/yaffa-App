@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import {useAuth} from '../Components/AuthContext';
 
 const Login = () => {
-  const { login } = useAuth();
+  const { login} = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -22,7 +22,7 @@ const Login = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-        credentials: 'include',
+
       });
 
       const data = await response.json();

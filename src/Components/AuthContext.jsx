@@ -1,5 +1,4 @@
-// AuthContext.js
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext(null);
@@ -7,15 +6,14 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    checkAuthStatus();
-  }, []);
-
-  const checkAuthStatus = async () => {
+  const [authToken, setAuthToken] = useState(null);
+  
+  const checkAuthStatus = useCallback(async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_HOST_API}/users/check-auth`, {
-        withCredentials: true
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
       });
       if (response.data.isAuthenticated) {
         setUser(response.data.user);
@@ -25,7 +23,11 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [authToken]);
+
+  useEffect(() => {
+    checkAuthStatus();
+  }, [checkAuthStatus]);
 
   const login = (userData) => {
     setUser(userData);
@@ -36,6 +38,7 @@ export const AuthProvider = ({ children }) => {
       withCredentials: true
     });
     setUser(null);
+    setAuthToken(null);
   };
 
   return (

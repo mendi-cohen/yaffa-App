@@ -30,7 +30,7 @@ export default function LayoutHome() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div>טוען...</div>;
+    return <div>טוען... </div>;
   }
 
 
