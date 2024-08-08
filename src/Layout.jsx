@@ -59,7 +59,7 @@ export default function LayoutHome() {
           <li className={isActive('/ads')}>
             <Link to="/ads">
               <i className="fas fa-ad"></i>
-              {(isExpanded || isMobile) && <span>פרסומות</span>}
+              {(isExpanded || isMobile) && <span>פרסומים</span>}
             </Link>
           </li>
           <li className={isActive('/login')}>
