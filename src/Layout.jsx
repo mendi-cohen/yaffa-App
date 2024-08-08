@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from "react-router-dom";
 import '@fortawesome/fontawesome-free/css/all.css';
 import  Logo from '../src/Components/Logo';
+import {useAuth} from '../src/Components/AuthContext';
 
 
 export default function LayoutHome() {
@@ -25,6 +26,13 @@ export default function LayoutHome() {
   const isActive = (path) => {
     return location.pathname === path ? 'active' : '';
   };
+
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return <div>טוען... </div>;
+  }
+
 
   return (
     <div className="layout-container">
@@ -51,13 +59,13 @@ export default function LayoutHome() {
           <li className={isActive('/ads')}>
             <Link to="/ads">
               <i className="fas fa-ad"></i>
-              {(isExpanded || isMobile) && <span>פרסומות</span>}
+              {(isExpanded || isMobile) && <span>פרסומים</span>}
             </Link>
           </li>
           <li className={isActive('/login')}>
-            <Link to="/login">
+             <Link to={user ? "login/dashboard" : "/login"}>
               <i className="fas fa-user"></i>
-              {(isExpanded || isMobile) && <span>איזור אישי</span>}
+              {(isExpanded || isMobile) && <span> איזור אישי </span>}
             </Link>
           </li>
         </ul>

@@ -7,7 +7,8 @@ import SignUp from './Pages/Sign_up';
 import About from './Pages/About';
 import Art from './Pages/Articles';
 import Meeting from './Pages/Meeting';
-import Dashboard from './Pages/Dashboard'
+import Dashboard from './Pages/Dashboard';
+import ProtectedRoute from './Components/ProtectNav';
 
 const MyRouter = () => {
   return (
@@ -21,7 +22,11 @@ const MyRouter = () => {
           <Route path="about" element={<About />} />
           <Route path="art" element={<Art />} />
           <Route path="meeting" element={<Meeting />} />
-          <Route path="login/dashboard" element={<Dashboard />} />
+          <Route path="login/dashboard" element={
+            <ProtectedRoute>
+            <Dashboard />
+            </ProtectedRoute>
+            } />
         </Route>
       </Routes>
     </Router>
