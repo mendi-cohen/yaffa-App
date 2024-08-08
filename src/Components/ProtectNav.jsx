@@ -1,12 +1,13 @@
 // ProtectedRoute.js
 import { Navigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import Loader from './Loader';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div>טוען...</div>;
+    return <Loader />;
   }
 
   if (!user) {
