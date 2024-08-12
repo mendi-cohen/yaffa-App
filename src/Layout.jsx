@@ -6,6 +6,7 @@ import {useAuth} from '../src/Components/AuthContext';
 import Loader from "./Components/Loader";
 
 
+
 export default function LayoutHome() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1100);
@@ -30,7 +31,12 @@ export default function LayoutHome() {
     return location.pathname === path ? 'active' : '';
   };
 
-  const { user, loading } = useAuth();
+  const { user, loading, checkAuthStatus } = useAuth();
+
+  const handlePersonalAreaClick = async () => {
+    await checkAuthStatus();
+    
+  };
 
   if (loading) {
     return <Loader/>;
@@ -68,10 +74,12 @@ export default function LayoutHome() {
             </Link>
           </li>
           <li className={isActive('/login')}>
-             <Link to={user ? "login/dashboard" : "/login"}>
+ 
+          <Link to={!user ? "/login" : user.rule === 'admin' ? "login/AdminBoard" : "login/dashboard"} onClick={handlePersonalAreaClick}>
               <i className="fas fa-user"></i>
-              {(isExpanded || isMobile) && <span> איזור אישי </span>}
+              {(isExpanded || isMobile) && <span onClick={handlePersonalAreaClick}> איזור אישי </span>}
             </Link>
+
           </li>
         </ul>
       </nav>
