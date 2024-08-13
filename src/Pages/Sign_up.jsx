@@ -42,8 +42,6 @@ export default function Sign_up() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // כאן תוסיף את הלוגיקה לשליחת הטופס
-    console.log('Form submitted:', formData);
   };
 
   return (

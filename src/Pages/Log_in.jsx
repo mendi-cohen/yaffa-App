@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import {useAuth} from '../Components/AuthContext';
 
 const Login = () => {
-  const { login} = useAuth();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +28,7 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        login(data.user);
+        login(data.user , data.token);
         toast.success( `!${data.user.name || ''} ברוך הבא `, {
           position: "top-center",
           autoClose: 1000,
@@ -36,7 +36,7 @@ const Login = () => {
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
-          onClose: () => navigate('dashboard' , {state: { user: data.user} })
+          onClose: data.user.rule === 'admin' ? ()=> navigate('AdminBoard') :() => navigate('Dashboard')
         });
       } else {
         toast.error(data.message || 'התרחשה שגיאה בהתחברות', {

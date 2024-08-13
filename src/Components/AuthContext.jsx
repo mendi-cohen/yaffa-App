@@ -9,10 +9,13 @@ export const AuthProvider = ({ children }) => {
   const [authToken, setAuthToken] = useState(null);
   
   const checkAuthStatus = useCallback(async () => {
+    console.log("RUNNING!!!!");
+    
     try {
       const response = await axios.get(`${process.env.REACT_APP_HOST_API}/users/check-auth`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
+          
         }
       });
       if (response.data.isAuthenticated) {
@@ -29,8 +32,9 @@ export const AuthProvider = ({ children }) => {
     checkAuthStatus();
   }, [checkAuthStatus]);
 
-  const login = (userData) => {
+  const login = (userData, token) => {
     setUser(userData);
+    setAuthToken(token); 
   };
 
   const logout = async () => {

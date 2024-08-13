@@ -9,6 +9,7 @@ import Art from './Pages/Articles';
 import Meeting from './Pages/Meeting';
 import Dashboard from './Pages/Dashboard';
 import ProtectedRoute from './Components/ProtectNav';
+import AdminBoard from "./Pages/AdminBoard";
 
 const MyRouter = () => {
   return (
@@ -25,6 +26,11 @@ const MyRouter = () => {
           <Route path="login/dashboard" element={
             <ProtectedRoute>
             <Dashboard />
+            </ProtectedRoute>
+            } />
+          <Route path="login/AdminBoard" element={
+            <ProtectedRoute>
+            <AdminBoard />
             </ProtectedRoute>
             } />
         </Route>
